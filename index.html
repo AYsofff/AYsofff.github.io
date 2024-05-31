@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="Rzm.css" />
+    <title>Резюме</title>
+    <script type="text/javascript">
+        function min(a, b) {
+            return (a < b) ? a : b;
+        }
+
+        function displayMax() {
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+            var result = min(num1, num2);
+            document.getElementById('result').innerText = 'Результат: ' + result;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="resume">
+        <img src="photo_2024-05-30_21-42-36.jpg" alt="Avatarka">
+        <p>Имя: <span id="name">Александр</span></p>
+    <p>Фамилия: <span id="surname">Усов</span></p>
+    <input type="text" id="newSurname" placeholder="Введите новую фамилию">
+    <button onclick="changeSurname()">Ввод</button>
+ <input type="text" id="newName" placeholder="Введите новое имя">
+ <button onclick="changeName()">Ввод</button>
+    <button onclick="changeBackgroundColor()">Изменить цвет фона</button>
+        <p>Телефон: <a href=#>+7(999)777-11-00</a>
+        <p>Email: <a href=#>sanechek.usov@mail.ru</a>
+            <script>
+                function changeSurname() {
+                    var newSurname = document.getElementById("newSurname").value;
+                    document.getElementById("surname").innerText = newSurname;
+                }
+          function changeName() {
+                    var newSurname = document.getElementById("newName").value;
+                    document.getElementById("name").innerText = newSurname;
+                }
+
+                function changeBackgroundColor() {
+                    var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                    document.body.style.backgroundColor = randomColor;
+                }
+            </script>
+        <dl>
+            <dt>Образование
+            <dd>
+                <h2>ФГБОУ ВО МГТУ "СТАНКИН"</h2>
+                <p><strong>Направление:</strong> 15.03.04<br />
+                    <strong>Курс:</strong> 3 (Бакалавриат)</p>
+        </dl>
+        <dl>
+            <dt>Навыки
+            <dd>
+                <h2>Изучаемые языки</h2>
+                <p> C++, C#, HTML, CSS, JavaScript
+        </dl>
+    </div>
+    <div class="Numbers">
+        <dl>
+            <h2>Введите два числа для нахождения минимального</h2>
+            <label for="num1">Число 1:</label>
+            <input type="number" id="num1" name="num1">
+            <br>
+            <label for="num2">Число 2:</label>
+            <input type="number" id="num2" name="num2">
+            <br><br>
+            <button onclick="displayMax()">Сравнить</button>
+            <br><br>
+            <div id="result"></div>
+        </dl>
+    </div>
+</body>
+</html>
